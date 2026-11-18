@@ -2,7 +2,20 @@
 
 Watch YouTube together, in sync. Create a room, share the code or link, and everyone sees the same moment. Play, pause, seek and video changes are synced over WebSockets, and roles decide who controls playback.
 
-**Live URL:** _add after deploying (see [Deploy](#deploy))_ — e.g. `https://matinee-watchparty.onrender.com`
+**Live URL:** https://matinee-1.onrender.com  
+_(Render free tier: the first load after the app has been idle can take about 30–50 seconds while it wakes up.)_
+
+**Docs:** [Run locally](#run-locally) · [Architecture & WebSocket flow](#architecture) · [Code walkthrough guide](docs/WALKTHROUGH.md) · [Demo](#demo) · [Deploy](#deploy)
+
+## Demo
+
+| Landing | Host: participant asks to pause |
+|---|---|
+| ![Landing](docs/screenshots/01-landing.jpg) | ![Host approves request](docs/screenshots/04-host-approves-request.jpg) |
+| **Empty room (host)** | **Second tab: joined late, in sync, chatting** |
+| ![Empty room](docs/screenshots/02-empty-room.jpg) | ![Participant in sync](docs/screenshots/03-participant-synced-chat.jpg) |
+
+To try it yourself, open the live URL in two browser tabs: create a room in one, and paste the invite link in the other.
 
 ---
 
@@ -89,7 +102,7 @@ All client events use acknowledgements: `{ ok: true }` or `{ ok: false, code, me
    - Build: `npm ci --include=dev && npm run build`
    - Start: `npm start`
    - Health check: `/api/health`
-3. Put the resulting URL at the top of this README.
+3. Put the resulting URL at the top of this README (currently deployed at https://matinee-1.onrender.com).
 
 One service serves the API, the WebSocket endpoint and the built SPA, so there's no CORS to configure and only one URL to share.
 
